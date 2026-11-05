@@ -1,0 +1,57 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - '**'
+    paths-ignore:
+      - '**.md'
+
+# Tests apply real resources against the shared test organisation, so every
+# run across every branch must serialize. A static group (queuing, not
+# cancelling) stops two runs from racing on the same organisation.
+concurrency:
+  group: github-integration-test
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    # Requires manual approval before the job gets access to the GitHub App secrets.
+    environment: integration-test
+    env:
+      TF_INPUT: false
+      GITHUB_OWNER: ${{ vars.GH_OWNER }}
+    strategy:
+      fail-fast: false
+      # Matrix legs share the organisation too; run one at a time.
+      max-parallel: 1
+      matrix:
+        module:
+          - .
+          - modules/rulesets
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+
+      - uses: actions/create-github-app-token@v2
+        id: app-token
+        with:
+          owner: ${{ vars.GH_OWNER }}
+          app-id: ${{ secrets.GH_APP_ID }}
+          private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+          permission-organization-administration: write
+
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.7.0"
+
+      - name: Test ${{ matrix.module }}
+        run: terraform init && terraform test
+        working-directory: ./${{ matrix.module }}
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
