@@ -1,4 +1,9 @@
+# Organisation rulesets require GitHub Team or higher, while the test
+# organisation is on the Free plan, so the test runs in plan mode.
+
 run "basic" {
+  command = plan
+
   variables {
     rulesets = {
       "required-attributes" = {
@@ -86,12 +91,12 @@ run "basic" {
   }
 
   assert {
-    condition     = github_organization_ruleset.default["required-attributes"].ruleset_id > 0
-    error_message = "Ruleset 'required-attributes' has not been created"
+    condition     = github_organization_ruleset.default["required-attributes"].enforcement == "active"
+    error_message = "Ruleset 'required-attributes' has not been planned with default enforcement"
   }
 
   assert {
-    condition     = github_organization_ruleset.default["all-attributes"].ruleset_id > 0
-    error_message = "Ruleset 'all-attributes' has not been created"
+    condition     = github_organization_ruleset.default["all-attributes"].enforcement == "evaluate"
+    error_message = "Ruleset 'all-attributes' has not been planned"
   }
 }

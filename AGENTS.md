@@ -9,3 +9,6 @@ CI authenticates with a GitHub App installed on that organisation only, so a lea
 
 The root module test runs in plan mode: destroying `github_organization_settings` resets the billing email to
 `email@example.com` instead of restoring the previous values.
+
+The `rulesets` module test runs in plan mode too: organisation rulesets require GitHub Team or higher, while the
+sandbox organisation is on the Free plan.
