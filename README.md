@@ -1,6 +1,6 @@
 # GitHub Organisation Terraform Module
 
-Terraform module to manage [GitHub](https://github.com) organisation resources.
+Terraform module to manage [GitHub](https://github.com) organisation resources (batteries included).
 
 ## Usage
 
@@ -14,31 +14,6 @@ module "organisation" {
   name                          = "Example"
   default_repository_permission = "read"
   web_commit_signoff_required   = true
-}
-
-module "rulesets" {
-  source = "Tensho/organisation/github//modules/rulesets"
-  version = "~> 1.0"
-
-  rulesets = {
-    "protect-default-branch" = {
-      name = "Protect Default Branch"
-
-      conditions = {
-        ref_name = {
-          include = ["~DEFAULT_BRANCH"]
-        }
-
-        repository_name = {
-          include = ["~ALL"]
-        }
-      }
-
-      rules = {
-        deletion = true
-      }
-    }
-  }
 }
 ```
 
