@@ -7,7 +7,7 @@ Terraform module to manage [GitHub](https://github.com) organisation resources.
 ```hcl
 module "organisation" {
   source = "Tensho/organisation/github"
-  version = "~> 1.0"
+  version = "~> 1.1"
 
   billing_email = "billing@example.com"
 
