@@ -52,7 +52,7 @@ Check out comprehensive examples in [`examples`](./examples) folder.
 
 * [x] [Organization settings](https://docs.github.com/en/organizations/managing-organization-settings)
 * [ ] [Members](https://docs.github.com/en/organizations/managing-membership-in-your-organization)
-* [ ] [Teams](https://docs.github.com/en/organizations/organizing-members-into-teams)
+* [x] [Teams](https://docs.github.com/en/organizations/organizing-members-into-teams)
 * [ ] [Team synchronization](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)
 * [ ] [Organization roles](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles)
 * [ ] [Repository roles](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/about-custom-repository-roles)
@@ -73,6 +73,7 @@ Check out comprehensive examples in [`examples`](./examples) folder.
 ## Modules
 
 * [rulesets](modules/rulesets)
+* [teams](modules/teams)
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements

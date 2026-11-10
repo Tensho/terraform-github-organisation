@@ -29,6 +29,7 @@ Use a [fine-grained personal access token](https://github.com/settings/personal-
 
 * **Resource owner**: the test organisation
 * **Organization permissions** → **Administration**: Read and write (settings, rulesets)
+* **Organization permissions** → **Members**: Read and write (teams)
 
 ## Testing
 

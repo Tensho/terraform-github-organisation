@@ -33,6 +33,7 @@ jobs:
         module:
           - .
           - modules/rulesets
+          - modules/teams
     steps:
       - uses: actions/checkout@v5
         with:
@@ -45,6 +46,7 @@ jobs:
           app-id: ${{ secrets.GH_APP_ID }}
           private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
           permission-organization-administration: write
+          permission-members: write
 
       - uses: hashicorp/setup-terraform@v3
         with:
