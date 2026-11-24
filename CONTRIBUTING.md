@@ -48,7 +48,11 @@ terraform init
 terraform test -verbose
 ```
 
-The `apps` test suite needs the `tensho-playground` GitHub App installed on the test organisation with "Only select repositories" access and the `terraform-github-organisation-apps-test` repository:
+The `apps` test suite needs:
+
+* a [classic personal access token](https://github.com/settings/tokens) with `repo` and `read:org` scopes in `GITHUB_TOKEN`, as fine-grained tokens can't list GitHub App installation repositories
+* the `tensho-playground` GitHub App installed on the test organisation with "Only select repositories" access
+* the `terraform-github-organisation-apps-test` repository
 
 ```shell
 cd modules/apps
