@@ -21,7 +21,7 @@ run "all_attributes" {
   variables {
     apps = {
       "test" = {
-        app_slug     = var.app_slug
+        app_slug     = "tensho-playground"
         repositories = [run.setup_repository.name]
       }
     }

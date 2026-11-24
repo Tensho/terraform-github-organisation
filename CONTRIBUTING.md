@@ -49,10 +49,10 @@ terraform init
 terraform test -verbose
 ```
 
-The `apps` test suite needs the slug of a GitHub App installed on the test organisation with "Only select repositories" access:
+The `apps` test suite needs the `tensho-playground` GitHub App installed on the test organisation with "Only select repositories" access:
 
 ```shell
 cd modules/apps
 terraform init
-terraform test -verbose -var app_slug=<REDACTED>
+terraform test -verbose
 ```
