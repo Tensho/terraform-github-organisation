@@ -30,6 +30,7 @@ Use a [fine-grained personal access token](https://github.com/settings/personal-
 * **Resource owner**: the test organisation
 * **Organization permissions** → **Administration**: Read and write (settings, rulesets)
 * **Organization permissions** → **Members**: Read and write (teams)
+* **Repository permissions** → **Administration**: Read and write (apps test repository)
 
 ## Testing
 
@@ -46,4 +47,12 @@ Run the sub-module test suite:
 cd modules/rulesets
 terraform init
 terraform test -verbose
+```
+
+The `apps` test suite needs the slug of a GitHub App installed on the test organisation with "Only select repositories" access:
+
+```shell
+cd modules/apps
+terraform init
+terraform test -verbose -var app_slug=<REDACTED>
 ```
