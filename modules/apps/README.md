@@ -7,7 +7,7 @@ The module finds each installation by the App slug, the last segment of `https:/
 Repository access is authoritative: the module grants access to listed repositories and revokes it from the rest.
 
 > [!IMPORTANT]
-> GitHub serves this API to user tokens only. Authenticate the provider with a classic personal access token of an organisation owner with `repo` and `read:org` scopes. Fine-grained personal access tokens and GitHub App installation tokens get `403`.
+> GitHub serves this API to user tokens only. Authenticate the provider with a fine-grained personal access token of an organisation owner with **Account permissions** → **GitHub App installation repository access**, not with a GitHub App installation token.
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
