@@ -4,11 +4,10 @@ module "example" {
 
   apps = {
     "ci" = {
-      app_slug = "example-ci"
+      app_slug = "tensho-playground"
 
       repositories = [
-        "infrastructure",
-        "terraform-modules",
+        "terraform-github-organisation-apps-test",
       ]
     }
   }

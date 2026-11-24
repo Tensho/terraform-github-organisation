@@ -30,7 +30,6 @@ Use a [fine-grained personal access token](https://github.com/settings/personal-
 * **Resource owner**: the test organisation
 * **Organization permissions** → **Administration**: Read and write (settings, rulesets)
 * **Organization permissions** → **Members**: Read and write (teams)
-* **Repository permissions** → **Administration**: Read and write (apps test repository)
 
 ## Testing
 
@@ -49,7 +48,7 @@ terraform init
 terraform test -verbose
 ```
 
-The `apps` test suite needs the `tensho-playground` GitHub App installed on the test organisation with "Only select repositories" access:
+The `apps` test suite needs the `tensho-playground` GitHub App installed on the test organisation with "Only select repositories" access and the `terraform-github-organisation-apps-test` repository:
 
 ```shell
 cd modules/apps

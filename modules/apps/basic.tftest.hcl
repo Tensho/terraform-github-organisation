@@ -1,15 +1,3 @@
-run "setup_repository" {
-  module {
-    source  = "Tensho/repository/github"
-    version = "1.5.0"
-  }
-
-  variables {
-    name               = "terraform-github-organisation-apps-test"
-    archive_on_destroy = false
-  }
-}
-
 run "required_attributes" {
   assert {
     condition     = length(github_app_installation_repositories.default) == 0
@@ -21,14 +9,17 @@ run "all_attributes" {
   variables {
     apps = {
       "test" = {
-        app_slug     = "tensho-playground"
-        repositories = [run.setup_repository.name]
+        app_slug = "tensho-playground"
+
+        repositories = [
+          "terraform-github-organisation-apps-test",
+        ]
       }
     }
   }
 
   assert {
-    condition     = github_app_installation_repositories.default["test"].selected_repositories == toset([run.setup_repository.name])
+    condition     = github_app_installation_repositories.default["test"].selected_repositories == toset(["terraform-github-organisation-apps-test"])
     error_message = "Repository access has not been granted"
   }
 
