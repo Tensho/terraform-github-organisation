@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/Tensho/terraform-github-organisation/compare/v1.1.0...v1.2.0) (2026-11-24)
+
+
+### Features
+
+* **apps:** manage repository access ([#3](https://github.com/Tensho/terraform-github-organisation/issues/3)) ([1b9cf9e](https://github.com/Tensho/terraform-github-organisation/commit/1b9cf9e1a75c91113f59b2dc25113f72ac17be30))
+
 ## [1.1.0](https://github.com/Tensho/terraform-github-organisation/compare/v1.0.0...v1.1.0) (2026-11-10)
 
 
