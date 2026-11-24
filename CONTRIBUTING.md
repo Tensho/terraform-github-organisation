@@ -30,7 +30,6 @@ Use a [fine-grained personal access token](https://github.com/settings/personal-
 * **Resource owner**: the test organisation
 * **Organization permissions** → **Administration**: Read and write (settings, rulesets)
 * **Organization permissions** → **Members**: Read and write (teams)
-* **Account permissions** → **GitHub App installation repository access** (apps)
 
 ## Testing
 
@@ -53,6 +52,7 @@ The `apps` test suite needs:
 
 * the `tensho-playground` GitHub App installed on the test organisation with "Only select repositories" access
 * the `terraform-github-organisation-apps-test` repository
+* a [classic personal access token](https://github.com/settings/tokens) with the `repo` and `read:org` scopes in `GITHUB_TOKEN`
 
 ```shell
 cd modules/apps

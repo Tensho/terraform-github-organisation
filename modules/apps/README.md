@@ -7,7 +7,7 @@ The module finds each installation by the App slug, the last segment of `https:/
 Repository access is authoritative: the module grants access to listed repositories and revokes it from the rest.
 
 > [!IMPORTANT]
-> GitHub serves this API to user tokens only. Authenticate the provider with a fine-grained personal access token of an organisation owner with **Account permissions** → **GitHub App installation repository access**, not with a GitHub App installation token.
+> The provider reads state from an API that rejects fine-grained personal access tokens, OAuth App tokens and GitHub App installation tokens ([integrations/terraform-provider-github#3751](https://github.com/integrations/terraform-provider-github/issues/3751)). Authenticate it with a classic personal access token of an organisation owner with the `repo` and `read:org` scopes.
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
