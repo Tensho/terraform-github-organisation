@@ -43,10 +43,11 @@ Check out comprehensive examples in [`examples`](./examples) folder.
 * [ ] [Actions variables](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-variables)
 * [ ] [Dependabot secrets](https://docs.github.com/en/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries)
 * [ ] [Codespaces secrets](https://docs.github.com/en/codespaces/managing-codespaces-for-your-organization/managing-development-environment-secrets-for-your-repository-or-organization)
-* [ ] [GitHub Apps](https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps)
+* [x] [GitHub Apps](https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps)
 
 ## Modules
 
+* [apps](modules/apps)
 * [rulesets](modules/rulesets)
 * [teams](modules/teams)
 

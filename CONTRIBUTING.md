@@ -47,3 +47,15 @@ cd modules/rulesets
 terraform init
 terraform test -verbose
 ```
+
+The `apps` test suite needs:
+
+* the `tensho-playground` GitHub App installed on the test organisation with "Only select repositories" access
+* the `terraform-github-organisation-apps-test` repository
+* a [classic personal access token](https://github.com/settings/tokens) with the `repo` and `read:org` scopes in `GITHUB_TOKEN`
+
+```shell
+cd modules/apps
+terraform init
+terraform test -verbose
+```

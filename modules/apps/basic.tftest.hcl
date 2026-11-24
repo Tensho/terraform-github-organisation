@@ -1,0 +1,30 @@
+run "required_attributes" {
+  assert {
+    condition     = length(github_app_installation_repositories.default) == 0
+    error_message = "Repository access has been granted without apps"
+  }
+}
+
+run "all_attributes" {
+  variables {
+    apps = {
+      "test" = {
+        app_slug = "tensho-playground"
+
+        repositories = [
+          "terraform-github-organisation-apps-test",
+        ]
+      }
+    }
+  }
+
+  assert {
+    condition     = github_app_installation_repositories.default["test"].selected_repositories == toset(["terraform-github-organisation-apps-test"])
+    error_message = "Repository access has not been granted"
+  }
+
+  assert {
+    condition     = output.installation_ids["test"] != ""
+    error_message = "Installation ID output is empty"
+  }
+}
